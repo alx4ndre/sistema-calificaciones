@@ -24,7 +24,7 @@ int main() {
             } while(notas[i][j] < 0 || notas[i][j] > 10);
         }
     }   
-    
+
     float prom_estudiante[num_estudiantes];
     float prom_asignatura[3] = {0, 0, 0};
 
@@ -54,5 +54,18 @@ int main() {
 
             if(notas[i][j] > max_asignatura[j]) max_asignatura[j] = notas[i][j];
             if(notas[i][j] < min_asignatura[j]) min_asignatura[j] = notas[i][j];
+        }
+    }
+    
+    int aprobados[3] = {0, 0, 0};
+    int reprobados[3] = {0, 0, 0};
+
+    for(int i = 0; i < num_estudiantes; i++) {
+        for(int j = 0; j < num_asignaturas; j++) {
+            if(notas[i][j] >= 6.0) {
+                aprobados[j]++;
+            } else {
+                reprobados[j]++;
+            }
         }
     }
