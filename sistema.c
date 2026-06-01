@@ -40,3 +40,19 @@ int main() {
     for(int j = 0; j < num_asignaturas; j++) {
         prom_asignatura[j] = prom_asignatura[j] / num_estudiantes;
     }
+
+      float max_estudiante[num_estudiantes], min_estudiante[num_estudiantes];
+    float max_asignatura[3] = {0,0,0}, min_asignatura[3] = {10,10,10};
+
+    for(int i = 0; i < num_estudiantes; i++) {
+        max_estudiante[i] = notas[i][0];
+        min_estudiante[i] = notas[i][0];
+
+        for(int j = 0; j < num_asignaturas; j++) {
+            if(notas[i][j] > max_estudiante[i]) max_estudiante[i] = notas[i][j];
+            if(notas[i][j] < min_estudiante[i]) min_estudiante[i] = notas[i][j];
+
+            if(notas[i][j] > max_asignatura[j]) max_asignatura[j] = notas[i][j];
+            if(notas[i][j] < min_asignatura[j]) min_asignatura[j] = notas[i][j];
+        }
+    }
